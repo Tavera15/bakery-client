@@ -1,0 +1,52 @@
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .navbar-links-group{
+        justify-content: center !important;
+    }
+}
+
+.navbar-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navbar-bg{
+    background-color: rgba(245,241,238,255);
+    border-bottom: rgba(235,147,111,255) solid 1px;
+}
+
+.navbar-user{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+}
+
+.navbar-links-group{
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-links-group .nav-item{
+    user-select: none;
+    display: inline-block;
+    white-space: normal;
+    margin: 0 10px;
+}
+
+.site-logo{
+    height: 85px;
+    width: auto;
+}
+
+.navbar-icon{
+    height: 28px;
+    margin: 0 10px;
+    width: auto;
+    align-self: flex-end;
+}
