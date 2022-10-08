@@ -1,0 +1,86 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .checkout-box-wrapper{
+        width: 30rem;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .basket-items{
+        width: 26rem;
+    }
+    
+    .checkout-box-wrapper{
+        width: 25rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+    
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .basket-items{
+        
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .basket-items{
+        width: 50rem;
+    }
+    
+    .checkout-box-wrapper{
+        width: 30rem;
+    }
+}
+
+#basket-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.basket-items{
+    justify-content: center;
+}
+
+.checkout-box{
+    padding: 10px 20px 15px;
+    background-color: rgba(0,0,0,.1);
+    width: 100%;
+}
+
+.checkout-btn{
+    background-color: rgba(121,180,188,255) !important;
+    border: rgba(121,180,188,255) 1px solid !important;
+    width: 100%;
+}
+
+.checkout-btn:hover{
+    background-color: rgba(235,147,111,255) !important;
+    border: rgba(235,147,111,255) 1px solid !important;
+}
+
+.checkout-btn-text{
+    margin: 0;
+    padding: 5px 0;
+}
+
+.checkout-details-box{
+    background-color: white;
+    text-align: right;
+    padding: 10px 30px;
+}
+
+.single-detail-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
