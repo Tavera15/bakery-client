@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import ProductMaker from "../Components/ProductMaker/ProductMaker";
+import axios from "axios";
 import { useHistory, useParams } from "react-router";
 import NotFoundPage from "./NotFoundPage";
 
@@ -16,12 +16,12 @@ function EditItemPage()
     {
         const url = process.env.REACT_APP_API_URL + "/Products/UpdateProduct/" + params.id;
         const config = {}
-
+        console.log(productBody)
         await axios.put(url, productBody, config)
             .then((res) => {
                 if(res.status === 200)
                 {
-                    history.push("/Item");
+                    history.push("/Item/" + params.id);
                 }
                 else
                 {

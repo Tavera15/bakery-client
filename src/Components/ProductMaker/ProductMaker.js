@@ -29,7 +29,6 @@ function ProductMaker(props)
             for(let i = 0; i < 5; i++)
             {
                 const sizeElement = document.getElementById("size" + i);
-                var d = [];
 
                 for(let j = 0; j < props.oldValues.availableSizes.length; j++)
                 {
@@ -43,7 +42,7 @@ function ProductMaker(props)
             setProductName(props.oldValues.name);
             setProductDesc(props.oldValues.description);
             setProductPrice(props.oldValues.unitPrice);
-            setAvailability(props.oldValues.isAvailable);
+            setAvailability(props.oldValues.isProductAvailable);
             setSizes(props.oldValues.availableSizes);
             setImgs(bodyImgs);
         }
@@ -64,7 +63,7 @@ function ProductMaker(props)
             "name" : productName,
             "description": productDesc,
             "unitPrice": productPrice,
-            "isAvaliable": isAvailable,
+            "isProductAvailable": isAvailable,
             "availableSizes": sizesSelected,
             "images" : bodyImgs
         }
@@ -175,7 +174,7 @@ function ProductMaker(props)
 
                 <div className="form-group">
                     <label htmlFor="productAvailability">Is Available?</label>
-                    <input value={isAvailable} onChange={(e) => setAvailability(e.target.value)} type="checkbox" className="form-control" id="productAvailability" />
+                    <input checked={isAvailable} value={isAvailable} onChange={(e) => setAvailability(e.target.checked)} type="checkbox" className="form-control" id="productAvailability" />
                 </div>
 
                 <form onClick={(e) => getSizesSelected()}>
