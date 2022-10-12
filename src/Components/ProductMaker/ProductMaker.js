@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import "./Item.css"
 
@@ -8,8 +8,47 @@ function ProductMaker(props)
     const [productDesc, setProductDesc] = useState("");
     const [productPrice, setProductPrice] = useState("");
     const [isAvailable, setAvailability] = useState(true);
-    const [sizesSelected, setSizes] = useState();
+    const [sizesSelected, setSizes] = useState("");
     const [imgs, setImgs] = useState([]);
+
+    useEffect(() => {
+        if(props.oldValues !== undefined)
+        {
+            const bodyImgs = [];
+            console.log(props.oldValues.availableSizes.split(','))
+            
+            if(props.oldValues.images.length > 0)
+            {
+
+                for(let i = 0; i < props.oldValues.images.length; i++)
+                {
+                    bodyImgs.push(props.oldValues.images[i].imageSource);
+                }
+            }
+
+            for(let i = 0; i < 5; i++)
+            {
+                const sizeElement = document.getElementById("size" + i);
+                var d = [];
+
+                for(let j = 0; j < props.oldValues.availableSizes.length; j++)
+                {
+                    if(props.oldValues.availableSizes.split(',').includes(sizeElement.value))
+                    {
+                        sizeElement.setAttribute("checked", true);
+                    }
+                }
+            }
+
+            setProductName(props.oldValues.name);
+            setProductDesc(props.oldValues.description);
+            setProductPrice(props.oldValues.unitPrice);
+            setAvailability(props.oldValues.isAvailable);
+            setSizes(props.oldValues.availableSizes);
+            setImgs(bodyImgs);
+        }
+
+    }, [props.oldValues])
 
 
     function handleSave(e)
@@ -35,6 +74,7 @@ function ProductMaker(props)
 
     function getSizesSelected()
     {
+        console.log("Change")
         var opts = document.getElementsByClassName("checkbox-opt")
         let res = "";
         setSizes("");
@@ -138,7 +178,7 @@ function ProductMaker(props)
                     <input value={isAvailable} onChange={(e) => setAvailability(e.target.value)} type="checkbox" className="form-control" id="productAvailability" />
                 </div>
 
-                <form onChange={(e) => getSizesSelected()}>
+                <form onClick={(e) => getSizesSelected()}>
                     <input className='checkbox-opt' type="checkbox" id="size0" name="size0" value="XS" />
                     <label htmlFor="size0">XS</label>
                     <br />
@@ -163,8 +203,8 @@ function ProductMaker(props)
 
                 <div id='imgList'>
                     {imgs.map((currentImage, i) => 
-                        <div>
-                            <img src={currentImage} alt={i} />
+                        <div key={i}>
+                            <img style={{"height": "30px", "width": "30px"}} src={currentImage} alt={i} />
                             <input type="button" onClick={e => removeImage(e, i)} />
                         </div>
                     )}

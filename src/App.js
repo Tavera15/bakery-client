@@ -10,6 +10,7 @@ import EditItemPage from "./Pages/EditItemPage.js";
 import ItemPage from "./Pages/ItemPage.js";
 import EditCartItem from "./Pages/EditCartItem.js";
 import BasketPage from "./Pages/BasketPage.js";
+import NotFoundPage from "./Pages/NotFoundPage.js";
 
 function App() {
   return (
@@ -35,11 +36,11 @@ function App() {
               <CreateItemPage />
             </Route>
 
-            <Route exact path="/Manager/EditItem">
+            <Route exact path="/Manager/EditItem/:id">
               <EditItemPage />
             </Route>
 
-            <Route exact path="/Item">
+            <Route exact path="/Item/:id">
               <ItemPage />
             </Route>
 
@@ -49,6 +50,10 @@ function App() {
 
             <Route exact path="/Cart">
               <BasketPage />
+            </Route>
+
+            <Route exact path="/NotFound">
+              <NotFoundPage />
             </Route>
 
           </div>
