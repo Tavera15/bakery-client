@@ -3,13 +3,25 @@ import './Item.css'
 import plusSign from '../../Content/Icons/round-plus.svg';
 import minusSign from '../../Content/Icons/round-minus.svg';
 import { Button } from 'react-bootstrap';
-import skye from "../../Content/Images/SkyeGoggles.jpeg";
+import { useParams } from 'react-router';
 
 function Item(props)
 {
     const[quantity, setQuantity] = useState(1);
     const[sizeSelected, setSizeSelected] = useState("");
 
+    const params = useParams();
+
+    function handleSave(e)
+    {
+        const body = {
+            "productId": params.id,
+            "quantity": quantity,
+            "sizeSelected": sizeSelected
+        }
+
+        props.handleAction(e, body);
+    }
 
     function onQuantityUpdate(event, amount){
         const newQty = quantity + amount <= 1 ? 1 : quantity + amount;
@@ -28,6 +40,7 @@ function Item(props)
             else
                 allSizeBoxes[i].classList.remove("size-box-selected");
         }
+        console.log(newSize)
     }
 
     return(
@@ -79,12 +92,12 @@ function Item(props)
 
                         {props.productData.availableSizes === undefined ? "" : 
                             (props.productData.availableSizes.split(',').map((e, i) =>
-                            <div key={i} className="size-box-container"><div onClick={e => onSizeSelect(e, e, i)} type="button" className={"size-box box-0" + i}><p className="size-box-text unhover">{e}</p></div></div>
+                            <div key={i} className="size-box-container"><div onClick={event => onSizeSelect(event, e, i)} type="button" className={"size-box box-0" + i}><p className="size-box-text unhover">{e}</p></div></div>
                         ))}
                     </div>
                 </div>
 
-                <Button onClick={props.btnFunction} type="button" className=" addCart-btn col-12 mb-4"><h4 className="add-to-cart-btn-text">{props.btnText}</h4></Button>
+                <Button onClick={handleSave} type="button" className=" addCart-btn col-12 mb-4"><h4 className="add-to-cart-btn-text">{props.btnText}</h4></Button>
                 
                 <div>
                     <p className="item-desc">{props.productData.description}</p>

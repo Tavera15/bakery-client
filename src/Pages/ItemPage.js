@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Item from '../Components/ItemComp/Item.js';
 import axios from "axios";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import NotFoundPage from "./NotFoundPage";
 
 function ItemPage()
@@ -10,6 +10,7 @@ function ItemPage()
     const [isLoaded, setIsLoaded] = useState(false);
     const [loadStatus, setLoadStatus] = useState();
     const params = useParams();
+    const history = useHistory();
 
     useEffect(() => {
         async function getProductData()
@@ -35,9 +36,27 @@ function ItemPage()
         getProductData();
     },[params.id]);
 
-    function AddToCart()
+    async function AddToCart(e, productBody)
     {
-        console.log("Add to cart");
+        const url = process.env.REACT_APP_API_URL + "/Basket/AddToCart";
+        const basketId = localStorage.getItem(process.env.REACT_APP_BASKET_ID);
+        const config = {headers: {"basketId": basketId}}
+
+        await axios.post(url, productBody, config)
+            .then((res) => {
+                if(res.status === 201)
+                {
+                    // Save basketId
+                    localStorage.setItem("basketId", res.data.basketId);
+                    history.push("/cart");
+                }
+                else
+                {
+                    // Display Errors
+                    history.push("/Item/" + params.id);
+                    console.log(res)
+                }
+            })
     }
 
     return(
@@ -45,7 +64,7 @@ function ItemPage()
             {isLoaded ? 
                 <div >
                     {loadStatus === 200 && productData.isProductAvailable
-                    ? <Item btnText="Add to cart" btnFunction={AddToCart} productData={productData} />
+                    ? <Item btnText="Add to cart" handleAction={AddToCart} productData={productData} />
                     : <NotFoundPage />
                     }
                 </div>

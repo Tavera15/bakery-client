@@ -1,7 +1,7 @@
 import React from 'react';
 import './BasketCard.css';
 
-function BasketCard()
+function BasketCard(props)
 {
     return(
         <div className="mb-4 basket-card-container">
@@ -11,17 +11,16 @@ function BasketCard()
                     <div className="basket-card-img-container">
                         <img 
                             className="basket-card-img"
-                            src="https://dummyimage.com/360/aaa/aaahttps://dummyimage.com/640x360/aaa/aaa"
-                            alt="product"   
+                            src={props.productImg}
+                            alt="props.name"   
                             />
                     </div>
                     <div className="basket-product-details-container">
-                        <h5 className="basket-product-name">Product Name - Limited Edition </h5>
-                        <h6 className="qty-details">Qty: 1 <span>$20.00 / Each</span></h6>
-                        <h6>$220.00</h6>
+                        <h5 className="basket-product-name">{props.name}</h5>
+                        <h6 className="qty-details">Qty: {props.qty} <span>${props.price.toFixed(2)} / Each</span></h6>
+                        <h6 className="qty-details">{props.size !== "" ? "Size: " + props.size : "" }</h6>
+                        <h6>${props.total.toFixed(2)}</h6>
                     </div>
-                </div>
-                <div className="basket-product-price-container">
                 </div>
                 <div>
                     <button type="button" className="btn btn-link">Edit</button>
