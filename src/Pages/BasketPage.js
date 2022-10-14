@@ -14,11 +14,12 @@ function BasketPage()
         async function getBasket()
         {
             const url = process.env.REACT_APP_API_URL + "/Basket/GetBasket/";            
-            const basketId = localStorage.getItem(process.env.REACT_APP_BASKET_ID);
+            const basketId = localStorage.getItem("basketId");
             const config = {headers: {"basketId": basketId}}
-
+            
             await axios.get(url, config)
                 .then((res) => {
+                    console.log(res.data)
                     setBasketitems(res.data.basketItems);
                     let accumulatedTotal = 0;
 
@@ -102,7 +103,8 @@ function BasketPage()
             <div className="basket-items p-4">
                 {basketItems.map((e, i) => 
                 <div key={i}>
-                    <BasketCard 
+                    <BasketCard
+                        itemId={e.basketItemId}
                         name={e.product.name}
                         size={e.sizeSelected}
                         qty={e.quantity} 

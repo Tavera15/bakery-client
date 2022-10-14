@@ -44,7 +44,7 @@ function App() {
               <ItemPage />
             </Route>
 
-            <Route exact path="/Cart/EditCartItem">
+            <Route exact path="/Cart/EditCartItem/:id">
               <EditCartItem />
             </Route>
 

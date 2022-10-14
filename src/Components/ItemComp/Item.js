@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Item.css'
 import plusSign from '../../Content/Icons/round-plus.svg';
 import minusSign from '../../Content/Icons/round-minus.svg';
@@ -11,6 +11,17 @@ function Item(props)
     const[sizeSelected, setSizeSelected] = useState("");
 
     const params = useParams();
+
+    useEffect(() => {
+        function setOldValues()
+        {
+            setQuantity(props.productData.qty | 1);
+            setSizeSelected(props.productData.sizeSelected | "");
+            onSizeSelect(null, props.productData.sizeSelected);
+        }
+        
+        setOldValues();
+    },[props.productData.qty, props.productData.sizeSelected]);
 
     function handleSave(e)
     {
@@ -28,19 +39,20 @@ function Item(props)
         setQuantity(newQty);
     }
 
-    function onSizeSelect(event, newSize, boxNum){
+    function onSizeSelect(event, newSize)
+    {
         setSizeSelected(newSize);
+
+        if(!newSize) {return;}
 
         let allSizeBoxes = document.getElementsByClassName("size-box");
         
         for(let i = 0; i < allSizeBoxes.length; i++)
         {
-            if(i === boxNum)
-                allSizeBoxes[i].classList.add("size-box-selected");
-            else
-                allSizeBoxes[i].classList.remove("size-box-selected");
+            allSizeBoxes[i].classList.remove("size-box-selected");
         }
-        console.log(newSize)
+        
+        document.getElementsByClassName("box-" + newSize)[0].classList.add("size-box-selected");
     }
 
     return(
@@ -53,8 +65,9 @@ function Item(props)
                 </ul>
 
                 <div className="carousel-inner">
-                    {
-                        props.productData.images.map((e, i) => 
+                    { (!props.productData.images) 
+                        ? <div></div> 
+                        : props.productData.images.map((e, i) => 
                         <div key={i} className="carousel-item active item-img card-img-top">
                             <img src={e.imageSource} alt={i}/>
                         </div>
@@ -85,17 +98,20 @@ function Item(props)
                         <input onClick={e => onQuantityUpdate(e, 1)} type="image" alt="plus" src={plusSign} className="quantity-btn unhover" />
                     </div>
                 </div>
-
-                <div className="mb-4 item-data-block">
-                    <h4>Select Size</h4>
-                    <div className="item-select-size-container">
-
-                        {props.productData.availableSizes === undefined ? "" : 
-                            (props.productData.availableSizes.split(',').map((e, i) =>
-                            <div key={i} className="size-box-container"><div onClick={event => onSizeSelect(event, e, i)} type="button" className={"size-box box-0" + i}><p className="size-box-text unhover">{e}</p></div></div>
-                        ))}
-                    </div>
-                </div>
+                        {!props.productData.availableSizes ? <div></div> : 
+                            <div className="mb-4 item-data-block">
+                                <div className="item-select-size-container">
+                                    <h4>Select Size</h4>
+                                    {(props.productData.availableSizes.split(',').map((currSize, i) =>
+                                        <div key={i} className="size-box-container">
+                                            <div onClick={event => onSizeSelect(event, currSize)} type="button" className={"size-box box-" + currSize}>
+                                                <p className="size-box-text unhover">{currSize}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        }
 
                 <Button onClick={handleSave} type="button" className=" addCart-btn col-12 mb-4"><h4 className="add-to-cart-btn-text">{props.btnText}</h4></Button>
                 

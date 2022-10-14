@@ -1,8 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BasketCard.css';
+import axios from "axios";
+import { useHistory } from "react-router";
+
 
 function BasketCard(props)
 {
+    const history = useHistory();
+
+    async function RemoveCartItem(e, basketItemId)
+    {
+        const url = process.env.REACT_APP_API_URL + "/Basket/RemoveFromCart/" + basketItemId;
+        const basketId = localStorage.getItem("basketId");
+        const config = {headers: {"basketId": basketId}};
+
+        await axios.delete(url, config)
+            .then((res) => {
+                if(res.status !== 200)
+                {
+                    console.log(res)
+                }
+
+                window.location.reload();
+            })
+    }
+
     return(
         <div className="mb-4 basket-card-container">
 
@@ -23,8 +46,8 @@ function BasketCard(props)
                     </div>
                 </div>
                 <div>
-                    <button type="button" className="btn btn-link">Edit</button>
-                    <button type="button" className="btn btn-link">Delete</button>
+                    <Link to={"/Cart/EditCartItem/" + props.itemId} type="button" className="btn btn-link">Edit</Link>
+                    <button onClick={(e) => RemoveCartItem(e, props.itemId)} type="button" className="btn btn-link">Delete</button>
                 </div>
             </div>
         </div>

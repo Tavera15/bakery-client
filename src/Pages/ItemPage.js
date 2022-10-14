@@ -15,13 +15,12 @@ function ItemPage()
     useEffect(() => {
         async function getProductData()
         {
-            const config = {}
-
             const url = process.env.REACT_APP_API_URL + "/Products/GetProduct/" + params.id;            
+            const basketId = localStorage.getItem("basketId");
+            const config = {headers: {"basketId": basketId}}
+
             await axios.get(url, config)
                 .then((res) => {
-                    console.log(res.data)
-
                     setProductData(res.data);
                     setLoadStatus(res.status);
                 })
@@ -39,7 +38,7 @@ function ItemPage()
     async function AddToCart(e, productBody)
     {
         const url = process.env.REACT_APP_API_URL + "/Basket/AddToCart";
-        const basketId = localStorage.getItem(process.env.REACT_APP_BASKET_ID);
+        const basketId = localStorage.getItem("basketId");
         const config = {headers: {"basketId": basketId}}
 
         await axios.post(url, productBody, config)
@@ -64,7 +63,9 @@ function ItemPage()
             {isLoaded ? 
                 <div >
                     {loadStatus === 200 && productData.isProductAvailable
-                    ? <Item btnText="Add to cart" handleAction={AddToCart} productData={productData} />
+                    ? <Item btnText="Add to cart" 
+                        handleAction={AddToCart} 
+                        productData={productData} />
                     : <NotFoundPage />
                     }
                 </div>
