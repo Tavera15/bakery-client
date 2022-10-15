@@ -21,7 +21,7 @@ function EditItemPage()
             .then((res) => {
                 if(res.status === 200)
                 {
-                    history.push("/Item/" + params.id);
+                    history.push("/Manager/ProductManager");
                 }
                 else
                 {

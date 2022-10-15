@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function NavBar()
 {
     return(
-        <div className='navbar-bg'>
+        <div className='navbar-bg overflow-auto'>
             <div className='navbar-main'>
                 <div className='navbar-user'>
                 </div>
@@ -20,6 +20,12 @@ function NavBar()
                         </li>
                         <li className="nav-item">
                             <Link to="/Accessories" className="nav-link">Accessories</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/Manager/ProductManager">Product Manager</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/Manager/InvoiceManager">Invoice Manager</Link>
                         </li>
                     </ul>
                 </div>

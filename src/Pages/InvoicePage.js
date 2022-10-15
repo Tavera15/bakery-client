@@ -22,7 +22,7 @@ function InvoicePage()
     useEffect(() => {
         async function getInvoiceData()
         {
-            const url = process.env.REACT_APP_API_URL + "/Orders/GetOrder/3e03c34e-5d9d-4c72-8166-786cbf15aacd";            
+            const url = process.env.REACT_APP_API_URL + "/Orders/GetOrder/" + params.id;            
             const config = {}
 
             await axios.get(url, config)
