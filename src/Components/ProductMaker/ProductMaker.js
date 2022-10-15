@@ -7,6 +7,7 @@ function ProductMaker(props)
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
     const [productPrice, setProductPrice] = useState("");
+    const [itemType, setItemType] = useState("");
     const [isAvailable, setAvailability] = useState(true);
     const [sizesSelected, setSizes] = useState("");
     const [imgs, setImgs] = useState([]);
@@ -39,16 +40,27 @@ function ProductMaker(props)
                 }
             }
 
+            const itemTypes = document.getElementsByName("itemType");
+        
+            for(let i = 0; i < itemTypes.length; i++)
+            {
+                itemTypes[i].checked = itemTypes[i].value === props.oldValues.itemType;
+            }
+
             setProductName(props.oldValues.name);
+            setItemType(props.oldValues.productType);
             setProductDesc(props.oldValues.description);
             setProductPrice(props.oldValues.unitPrice);
             setAvailability(props.oldValues.isProductAvailable);
             setSizes(props.oldValues.availableSizes);
             setImgs(bodyImgs);
-        }
 
+            console.log(props.oldValues.productType)
+
+        }
     }, [props.oldValues])
 
+    
 
     function handleSave(e)
     {
@@ -61,6 +73,7 @@ function ProductMaker(props)
 
         const body ={
             "name" : productName,
+            "productType": itemType,
             "description": productDesc,
             "unitPrice": productPrice,
             "isProductAvailable": isAvailable,
@@ -165,6 +178,14 @@ function ProductMaker(props)
                 <div className="form-group">
                     <label htmlFor="productPrice">Product Price</label>
                     <input value={productPrice || ""} onChange={(e) => setProductPrice(e.target.value)} required type="number" min="0.00" step="0.01" className="form-control" id="productPrice" />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor='itemType'>Select Item Type</label>
+                    <select onChange={(e) => setItemType(e.target.value)} value={itemType} className='form-control' name="itemType" id="itemType">
+                        <option value="Treats">Treats</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
                 </div>
 
                 <div className="form-group">

@@ -11,6 +11,7 @@ import ItemPage from "./Pages/ItemPage.js";
 import EditCartItem from "./Pages/EditCartItem.js";
 import BasketPage from "./Pages/BasketPage.js";
 import NotFoundPage from "./Pages/NotFoundPage.js";
+import Invoice from "./Pages/InvoicePage.js";
 
 function App() {
   return (
@@ -50,6 +51,10 @@ function App() {
 
             <Route exact path="/Cart">
               <BasketPage />
+            </Route>
+
+            <Route exact path="/Invoice">
+              <Invoice />
             </Route>
 
             <Route exact path="/NotFound">

@@ -19,6 +19,10 @@
         height: auto !important;
         width: 10rem !important;
     }
+
+    .img-container img{
+        height: 10rem !important;
+    }
 }
 
 .product-card-container{
@@ -31,14 +35,14 @@
 }
 
 .img-container{
-    width: 20rem;
-    height: auto;
+    width: 18rem;
 }
 
 .img-container img{
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 100%;
+    height: 18rem;
 }
 
 .product-card-link{

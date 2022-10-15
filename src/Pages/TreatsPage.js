@@ -6,7 +6,7 @@ function TreatsPage()
     return(
         <div>
             <p>Treats Page</p>
-            <ProductList />
+            <ProductList productType="Treats" />
         </div>
     );
 }

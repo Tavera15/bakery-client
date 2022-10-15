@@ -6,7 +6,7 @@ function AccessoriesPage()
     return(
         <div>
             <p>Accessories Page</p>
-            <ProductList />
+            <ProductList productType = "Accessories" />
         </div>
     );
 }

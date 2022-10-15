@@ -100,8 +100,8 @@ function Item(props)
                 </div>
                         {!props.productData.availableSizes ? <div></div> : 
                             <div className="mb-4 item-data-block">
+                                <h4>Select Size</h4>
                                 <div className="item-select-size-container">
-                                    <h4>Select Size</h4>
                                     {(props.productData.availableSizes.split(',').map((currSize, i) =>
                                         <div key={i} className="size-box-container">
                                             <div onClick={event => onSizeSelect(event, currSize)} type="button" className={"size-box box-" + currSize}>

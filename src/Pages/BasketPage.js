@@ -2,14 +2,59 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import "./BasketPage.css";
 import BasketCard from "../Components/BasketCard/BasketCard.js";
+import { useHistory } from "react-router";
 
 function BasketPage()
 {
+    const history = useHistory();
+
     const [basketItems, setBasketitems] = useState([]);
     const [total, setTotal] = useState(0);
     const [subtotal, setSubtotal] = useState(0);
 
     const [customerName, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [addressLine1, setLine1] = useState("");
+    const [addressLine2, setLine2] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("")
+    const [zipCode, setZipCose] = useState("");
+
+    async function CompleteOrder(e)
+    {
+        const body = {
+            "customerName": customerName,
+            "email": email,
+            "phone": phone,
+            "addressLine1": addressLine1,
+            "addressLine2": addressLine2,
+            "city": city,
+            "state": state,
+            "zipCode": zipCode,
+        }
+
+        const url = process.env.REACT_APP_API_URL + "/Orders/CreateNewOrder/";
+        const basketId = localStorage.getItem("basketId");
+        const config = {headers: {"basketId": basketId}};
+
+        await axios.post(url, body, config)
+            .then((res) => {
+                if(res.status === 201)
+                {
+                    // Save basketId
+                    localStorage.setItem("basketId", res.data.basketId);
+                    history.push("/");
+                }
+                else
+                {
+                    // Display Errors
+                    history.push("/Cart/");
+                    console.log(res)
+                }
+            })
+    }
+
     useEffect(() => {
         async function getBasket()
         {
@@ -56,45 +101,45 @@ function BasketPage()
                                 <h5>${total.toFixed(2)}</h5>
                             </div>
                         </div>
-                        <button className="btn btn-dark checkout-btn mt-4"><h4 className="checkout-btn-text">Checkout</h4></button>
+                        <button onClick={CompleteOrder} className="btn btn-dark checkout-btn mt-4"><h4 className="checkout-btn-text">Checkout</h4></button>
                     </div>
                 </div>
                 <div className="customer-data">
                     <div className="form-row">
                         <div className="form-group col-md-6">
                         <label htmlFor="customerName">Name</label>
-                        <input className="form-control" id="customerName" placeholder="Customer Name" />
+                        <input onChange={(e) => setName(e.target.value)} className="form-control" id="customerName" placeholder="Customer Name" />
                         </div>
                         <div className="form-group col-md-6">
                         <label htmlFor="phone">Telephone</label>
-                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="form-control" id="phone" />
+                        <input onChange={(e) => setPhone(e.target.value)} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="form-control" id="phone" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputAddress">Address</label>
-                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+                        <input onChange={(e) => setLine1(e.target.value)} type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputAddress2">Address 2</label>
-                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                        <input onChange={(e) => setLine2(e.target.value)} type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="inputCity">City</label>
-                            <input type="text" className="form-control" id="inputCity" />
+                            <input onChange={(e) => setCity(e.target.value)} type="text" className="form-control" id="inputCity" />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="inputState">State</label>
-                            <input type="text" className="form-control" id="inputState" />
+                            <input onChange={(e) => setState(e.target.value)} type="text" className="form-control" id="inputState" />
                         </div>
                         <div className="form-group col-md-2">
                         <label htmlFor="inputZip">Zip</label>
-                        <input type="text" className="form-control" id="inputZip" />
+                        <input onChange={(e) => setZipCose(e.target.value)} type="text" className="form-control" id="inputZip" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputEmail">Email</label>
-                        <input type="email" className="form-control" id="inputEmail" placeholder="" />
+                        <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="inputEmail" placeholder="" />
                     </div>
                 </div>
             </div>

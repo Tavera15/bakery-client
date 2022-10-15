@@ -2,13 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BasketCard.css';
 import axios from "axios";
-import { useHistory } from "react-router";
 
 
 function BasketCard(props)
 {
-    const history = useHistory();
-
     async function RemoveCartItem(e, basketItemId)
     {
         const url = process.env.REACT_APP_API_URL + "/Basket/RemoveFromCart/" + basketItemId;

@@ -12,7 +12,6 @@
 }
 
 .list-container{
-    border: green solid 1px;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
