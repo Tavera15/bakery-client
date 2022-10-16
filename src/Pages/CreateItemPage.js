@@ -16,7 +16,7 @@ function CreateItemPage()
             .then((res) => {
                 if(res.status === 201)
                 {
-                    history.push("/Item");
+                    history.push("/Manager/ProductManager");
                 }
                 else
                 {

@@ -7,7 +7,7 @@ function ProductMaker(props)
     const [productName, setProductName] = useState("");
     const [productDesc, setProductDesc] = useState("");
     const [productPrice, setProductPrice] = useState("");
-    const [itemType, setItemType] = useState("");
+    const [itemType, setItemType] = useState("Treats");
     const [isAvailable, setAvailability] = useState(true);
     const [sizesSelected, setSizes] = useState("");
     const [imgs, setImgs] = useState([]);
