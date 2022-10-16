@@ -53,6 +53,7 @@ function ProductManager()
         <div>
             {isLoaded ? 
                 <div>
+                    <Link className="btn btn-primary m-4" to="/Manager/CreateItem">Create Item</Link>
                     {loadStatus === 200 ?
                         <div className="table-responsive">
                             <table className="table">

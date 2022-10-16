@@ -137,6 +137,7 @@ function ProductMaker(props)
     {
         imgs.splice(i, 1)
         setImgs([...imgs]);
+        console.log(imgs)
     }
 
     return(
@@ -148,15 +149,15 @@ function ProductMaker(props)
                     <li data-target="#demo" data-slide-to="1"></li>
                 </ul>
 
-                <div className="carousel-inner">
-                    <div className="carousel-item active item-img card-img-top">
-                        <img src="https://ji4n127gpjg29plb11l88dg7-wpengine.netdna-ssl.com/wp-content/uploads/2019/06/iStock-182444072-681x1024.jpg" 
-                        alt="Los Angeles"/>
-                    </div>
-                    <div className="carousel-item item-img card-img-top">
-                        <img src="https://miro.medium.com/max/2880/1*RkMinN_ZS-mW1uqh1rANag.jpeg" 
-                        alt="New York"/>
-                    </div>
+                <div className="carousel-inner active">
+                    { (!imgs) 
+                        ? <div></div> 
+                        : imgs.map((e, i) => 
+                            <div key={i} className={"carousel-item item-img card-img-top " + (i === 0 ? "active" : "")}>
+                                <img src={e} alt={i}/>
+                            </div>
+                        )
+                    }
                 </div>
 
                 <a className="carousel-control-prev" href="#demo" data-slide="prev">
@@ -223,9 +224,9 @@ function ProductMaker(props)
 
                 <div id='imgList'>
                     {imgs.map((currentImage, i) => 
-                        <div key={i}>
+                        <div className='m-4' key={i}>
                             <img style={{"height": "30px", "width": "30px"}} src={currentImage} alt={i} />
-                            <input type="button" onClick={e => removeImage(e, i)} />
+                            <button className='btn btn-danger ml-4' onClick={e => removeImage(e, i)}>Remove</button>
                         </div>
                     )}
                 </div>

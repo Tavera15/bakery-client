@@ -68,9 +68,9 @@ function Item(props)
                     { (!props.productData.images) 
                         ? <div></div> 
                         : props.productData.images.map((e, i) => 
-                        <div key={i} className="carousel-item active item-img card-img-top">
-                            <img src={e.imageSource} alt={i}/>
-                        </div>
+                            <div key={i} className="carousel-item active item-img card-img-top">
+                                <img src={e.imageSource} alt={i}/>
+                            </div>
                         )
                     }
                 </div>
