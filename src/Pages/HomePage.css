@@ -1,0 +1,90 @@
+@media (max-width: 1100px) {
+    .skye-pic{
+        width: 17rem !important;
+        height: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .skye-pic{
+        width: 17rem !important;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    #about-me{
+        flex-direction: column !important;
+    }
+
+    .skye-pic{
+        width: 100% !important;
+        height: auto;
+    }
+}
+
+
+
+.promo1{
+    background-image: url("../Content/Images/bg6.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 30rem;
+    color: cyan;
+}
+
+.inner-promo1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.15);
+    font-weight: lighter;
+}
+
+.inner-promo1 h1{
+    padding: 10px;
+    font-size: 4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: cursive;
+}
+
+.promo1 img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+#about-me{
+    padding: 4rem 2rem;
+    margin: 4rem 0;
+    background-color: rgba(251,231,239, .7);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.skye-pic{
+    height: auto;
+    width: 24rem;
+}
+
+.skye-info{
+    color: black;
+    padding: 1rem;
+}
+
+.skye-name{
+    font-family: cursive;
+}
+
+.skye-mission{
+
+}
+
+.skye-line{
+
+}

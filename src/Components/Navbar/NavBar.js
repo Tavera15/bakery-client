@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css"
 
 function NavBar()
 {
@@ -9,7 +10,7 @@ function NavBar()
                 <div className='navbar-user'>
                 </div>
             </div>
-            <nav className="navbar navbar-expand navbar-light  w-100 m-0">
+            <nav className="navbar navbar-expand navbar-light w-100 m-0">
                 <div className="collapse navbar-collapse w-100" id="navbarNavDropdown">
                     <ul className="navbar-nav navbar-links-group">
                         <li className="nav-item active">
