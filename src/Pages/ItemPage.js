@@ -49,12 +49,10 @@ function ItemPage()
                     localStorage.setItem("basketId", res.data.basketId);
                     history.push("/cart");
                 }
-                else
-                {
-                    // Display Errors
-                    history.push("/Item/" + params.id);
-                    console.log(res)
-                }
+            })
+            .catch((err) => {
+                console.log(err)
+                alert(err.response.data)
             })
     }
 

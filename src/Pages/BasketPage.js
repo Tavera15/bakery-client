@@ -44,14 +44,11 @@ function BasketPage()
                 {
                     // Save basketId
                     localStorage.setItem("basketId", res.data.basketId);
-                    history.push("/");
+                    history.push("/Invoice/" + res.data.invoiceID);
                 }
-                else
-                {
-                    // Display Errors
-                    history.push("/Cart/");
-                    console.log(res)
-                }
+            })
+            .catch((err) => {
+                alert(err.response.data);
             })
     }
 
@@ -108,16 +105,16 @@ function BasketPage()
                     <div className="form-row">
                         <div className="form-group col-md-6">
                         <label htmlFor="customerName">Name</label>
-                        <input onChange={(e) => setName(e.target.value)} className="form-control" id="customerName" placeholder="Customer Name" />
+                        <input required onChange={(e) => setName(e.target.value)} className="form-control" id="customerName" placeholder="Customer Name" />
                         </div>
                         <div className="form-group col-md-6">
                         <label htmlFor="phone">Telephone</label>
-                        <input onChange={(e) => setPhone(e.target.value)} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="form-control" id="phone" />
+                        <input required onChange={(e) => setPhone(e.target.value)} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="form-control" id="phone" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputAddress">Address</label>
-                        <input onChange={(e) => setLine1(e.target.value)} type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+                        <input required onChange={(e) => setLine1(e.target.value)} type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputAddress2">Address 2</label>
@@ -126,20 +123,20 @@ function BasketPage()
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="inputCity">City</label>
-                            <input onChange={(e) => setCity(e.target.value)} type="text" className="form-control" id="inputCity" />
+                            <input required onChange={(e) => setCity(e.target.value)} type="text" className="form-control" id="inputCity" />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="inputState">State</label>
-                            <input onChange={(e) => setState(e.target.value)} type="text" className="form-control" id="inputState" />
+                            <input required onChange={(e) => setState(e.target.value)} type="text" className="form-control" id="inputState" />
                         </div>
                         <div className="form-group col-md-2">
                         <label htmlFor="inputZip">Zip</label>
-                        <input onChange={(e) => setZipCose(e.target.value)} type="text" className="form-control" id="inputZip" />
+                        <input required onChange={(e) => setZipCose(e.target.value)} type="text" className="form-control" id="inputZip" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputEmail">Email</label>
-                        <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="inputEmail" placeholder="" />
+                        <input required onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="inputEmail" placeholder="" />
                     </div>
                 </div>
             </div>
