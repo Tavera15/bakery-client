@@ -36,7 +36,7 @@ function BasketPage()
 
         const url = process.env.REACT_APP_API_URL + "/Orders/CreateNewOrder/";
         const basketId = localStorage.getItem("basketId");
-        const config = {headers: {"basketId": basketId, "Access-Control-Allow-Headers" : "Content-type"}};
+        const config = {headers: {"basketId": basketId}};
 
         await axios.post(url, body, config)
             .then((res) => {
