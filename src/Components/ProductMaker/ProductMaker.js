@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import {Editor} from "@tinymce/tinymce-react";
 import "./Item.css"
 
 function ProductMaker(props)
 {
     const [productName, setProductName] = useState("");
-    const [productDesc, setProductDesc] = useState("");
     const [productPrice, setProductPrice] = useState("");
+    const [productDesc, setProductDesc] = useState("");
     const [itemType, setItemType] = useState("Treats");
     const [isAvailable, setAvailability] = useState(true);
     const [sizesSelected, setSizes] = useState("");
@@ -190,9 +191,25 @@ function ProductMaker(props)
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="productDescription">Description</label>
-                    <input value={productDesc || ""} onChange={(e) => setProductDesc(e.target.value)} required className="form-control" id="productDescription" />
-                     
+                    <label htmlFor="inputProductDesc">Description</label>
+                    <Editor
+                            id="inputProductDesc"
+                            onEditorChange={(e) => setProductDesc(e)}
+                            value={productDesc}
+                            init={{
+                                skin: true,
+                                content_css: true,
+                                menubar: true,
+                                height: 200,
+                                plugins: [
+                                    'table'
+                                ],
+                                toolbar: 'undo redo | formatselect | ' +
+                                'bold italic backcolor | alignleft aligncenter ' +
+                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                'removeformat | help',
+                            }}
+                        />
                 </div>
 
                 <div className="form-group">

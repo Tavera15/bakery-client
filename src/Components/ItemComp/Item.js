@@ -115,9 +115,7 @@ function Item(props)
 
                 <Button onClick={handleSave} type="button" className=" addCart-btn col-12 mb-4"><h4 className="add-to-cart-btn-text">{props.btnText}</h4></Button>
                 
-                <div>
-                    <p className="item-desc">{props.productData.description}</p>
-                </div>
+                <div dangerouslySetInnerHTML={{__html: props.productData.description}}></div>
 
             </div>
 
