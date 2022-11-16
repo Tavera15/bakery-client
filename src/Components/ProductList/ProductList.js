@@ -41,7 +41,7 @@ function ProductList(props)
                     {loadStatus === 200
                     ? <div className="list-container">
                         {productList.map((p, i) =>
-                            !p.isProductAvailable ? null
+                            !p.isProductAvailable || (props.limit !== null && i >= props.limit) ? null
                             : <ProductCard key={i} name={p.name} img={p.images[0]} unitPrice={p.unitPrice} id={p.id} />
                         )}
                       </div>

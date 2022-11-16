@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./Components/Navbar/NavBar.js";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import AccessoriesPage from "./Pages/AccessoriesPage.js";
 import TreatsPage from "./Pages/TreatsPage.js";
 import HomePage from './Pages/HomePage.js';
@@ -22,7 +22,7 @@ function App() {
         <NavBar />
         
         <Switch>
-          <div>
+          <div className="body-pages">
             <Route exact path="/">
               <HomePage />
             </Route>
@@ -73,6 +73,24 @@ function App() {
 
           </div>
         </Switch>
+        
+        <div className="foot-section">
+          <div className="foot-links">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/Products">Products</Link></li>
+              <li><Link to="/Treats">Treats</Link></li>
+              <li><Link to="/Accessories">Accessories</Link></li>
+              <li><Link to="/Cart">Cart</Link></li>
+              <li><Link to="/Product Manager">Product Manager</Link></li>
+              <li><Link to="/Invoice Manager">Invoice Manager</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Made by Joaquin Ramirez</h4>
+            <p>This is my submission for class</p>
+          </div>
+        </div>
       </Router>
     </div>
   );

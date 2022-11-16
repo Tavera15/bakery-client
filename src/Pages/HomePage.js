@@ -28,17 +28,21 @@ function HomePage()
                 </div>
             </div>
 
-            <div className="mt-4">
+            <div className="home-products pt-4 pb-4">
                 <h2>Check the Latest</h2>
-                <ProductList productType="" />
+                <ProductList productType="" limit={3} />
             </div>
 
             <div id="about-me">
-                <img className="skye-pic" src={skye} alt="skye" />
-                <div className="skye-info">
-                    <h1 className="skye-name">My name is Skye</h1>
-                    <h3 className="skye-mission">& our mission is to make other dogs happy with delicious and special treats!</h3>
-                    <h3 className="skye-line">{skyeLine}</h3>
+                <div className="about-me-outter">
+                    <div className="about-me-inner">
+                        <img className="skye-pic" src={skye} alt="skye" />
+                        <div className="skye-info">
+                            <h1 className="skye-name mb-3">My name is Skye</h1>
+                            <h3 className="skye-mission">And our mission is to make other dogs happy with delicious and special treats!</h3>
+                            <h3 className="skye-line">{skyeLine}</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

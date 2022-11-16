@@ -1,5 +1,27 @@
+
+@media (max-width: 992px) {
+  .foot-section{
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .foot-links{
+    margin-bottom: 4rem;
+  }
+
+  .foot-links ul{
+    text-align: center !important;
+  }
+}
+
 .App {
   text-align: center;
+}
+
+.body-pages{
+  min-height: 100vh !important;
+  background-image: url("./Content/Images/bg8.jpg");
+  background-attachment: fixed;
 }
 
 .App-logo {
@@ -35,4 +57,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.foot-section{
+  padding: 3rem 0;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  margin-bottom: 0 !important;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.foot-links ul{
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.foot-links ul li{
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.foot-links ul li a{
+  color: white !important;
+  color: cyan !important;
 }

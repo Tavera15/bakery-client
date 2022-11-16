@@ -10,10 +10,22 @@
         width: 17rem !important;
         height: auto;
     }
+
+    .skye-mission{
+        font-size: 2rem !important;
+    }
+
+    .skye-line{
+        font-size: 1.5rem !important;
+    }
+
+    .about-me-outter{
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 600px) {
-    #about-me{
+    .about-me-inner{
         flex-direction: column !important;
     }
 
@@ -21,9 +33,23 @@
         width: 100% !important;
         height: auto;
     }
+
+    .skye-mission{
+        font-size: 2rem !important;
+    }
+
+    .skye-line{
+        font-size: 1.5rem !important;
+    }
+
+    .about-me-outter{
+        width: 100% !important;
+    }
 }
 
-
+.home-products{
+    background-color: white;
+}
 
 .promo1{
     background-image: url("../Content/Images/bg6.jpg");
@@ -32,6 +58,7 @@
     width: 100%;
     height: 30rem;
     color: cyan;
+    background-color: white;
 }
 
 .inner-promo1{
@@ -59,9 +86,18 @@
 }
 
 #about-me{
+    background-color: rgba(251,231,239, .92);
+}
+
+.about-me-outter{
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    width: 80%;
+}
+
+.about-me-inner{
     padding: 4rem 2rem;
-    margin: 4rem 0;
-    background-color: rgba(251,231,239, .7);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -70,21 +106,37 @@
 .skye-pic{
     height: auto;
     width: 24rem;
+    border-radius: 25px;
 }
 
 .skye-info{
     color: black;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .skye-name{
     font-family: cursive;
+    font-size: 3rem;
+    color: #b094ae;
+    color: rebeccapurple;
+    color: hsl(304, 22%, 58%);
 }
 
 .skye-mission{
-
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+    color: rebeccapurple;
+    color: hsl(304, 22%, 58%);
+    font-weight: bold;
 }
 
 .skye-line{
-
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: hsl(304, 22%, 58%);
 }
