@@ -20,8 +20,6 @@
 
 .body-pages{
   min-height: 100vh !important;
-  background-image: url("./Content/Images/bg8.jpg");
-  background-attachment: fixed;
 }
 
 .App-logo {

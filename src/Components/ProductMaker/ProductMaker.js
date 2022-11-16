@@ -192,6 +192,7 @@ function ProductMaker(props)
                 <div className="form-group">
                     <label htmlFor="productDescription">Description</label>
                     <input value={productDesc || ""} onChange={(e) => setProductDesc(e.target.value)} required className="form-control" id="productDescription" />
+                     
                 </div>
 
                 <div className="form-group">

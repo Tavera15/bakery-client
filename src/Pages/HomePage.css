@@ -47,6 +47,11 @@
     }
 }
 
+#home-page{
+    background-image: url("../Content/Images/bg8.jpg");
+    background-attachment: fixed;
+}
+
 .home-products{
     background-color: white;
 }
@@ -119,6 +124,7 @@
 
 .skye-name{
     font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 3rem;
     color: #b094ae;
     color: rebeccapurple;

@@ -85,7 +85,7 @@ function BasketPage()
     },[]);
 
     return(
-        <div className="" id="basket-page">
+        <div className="base-page" id="basket-page">
             <div className="order-details">
                 <div className="checkout-box-wrapper p-4">
 

@@ -20,7 +20,7 @@ function HomePage()
     }, [])
 
     return(
-        <div>
+        <div id="home-page">
 
             <div className="promo1">
                 <div className="inner-promo1">
