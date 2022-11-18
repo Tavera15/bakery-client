@@ -48,3 +48,8 @@
     width: auto;
     align-self: flex-end;
 }
+
+.logo{
+    height: 6rem;
+    width: auto;
+}

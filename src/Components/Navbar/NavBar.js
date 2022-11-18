@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css"
+import logo from "../../Content/Images/logo.png"
 
 function NavBar()
 {
     return(
         <div className='navbar-bg overflow-auto'>
+            <div>
+                <Link to="/"><img className="logo" alt="logo" src={logo} /></Link>
+                
+            </div>
             <div className='navbar-main'>
                 <div className='navbar-user'>
                 </div>
@@ -15,6 +20,9 @@ function NavBar()
                     <ul className="navbar-nav navbar-links-group">
                         <li className="nav-item active">
                             <Link to="/" className="nav-link">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/Products" className="nav-link">Products</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/Treats" className="nav-link">Treats</Link>
@@ -27,6 +35,9 @@ function NavBar()
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/Manager/InvoiceManager">Invoice Manager</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/Cart" className="nav-link">Basket</Link>
                         </li>
                     </ul>
                 </div>

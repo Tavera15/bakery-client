@@ -64,8 +64,6 @@
 .checkout-box{
     padding: 10px 20px 15px;
     background-color: rgba(0,0,0,.1);
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -103,4 +101,9 @@
 
 .customer-data{
     padding: 1rem;
+}
+
+.basket-logo{
+    height: 5rem;
+    width: auto;
 }

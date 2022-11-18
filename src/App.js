@@ -14,6 +14,7 @@ import NotFoundPage from "./Pages/NotFoundPage.js";
 import Invoice from "./Pages/InvoicePage.js";
 import ProductManager from "./Pages/ProductManager.js";
 import InvoiceManager from "./Pages/InvoiceManager.js";
+import ProductsPage from "./Pages/ProductsPage.js";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           <div className="body-pages">
             <Route exact path="/">
               <HomePage />
+            </Route>
+
+            <Route exact path="/Products">
+              <ProductsPage />
             </Route>
 
             <Route exact path="/Treats">
@@ -88,7 +93,7 @@ function App() {
           </div>
           <div>
             <h4>Made by Joaquin Ramirez</h4>
-            <p>This is my submission for class</p>
+            <p>This is my submission for INEW 2332 Comprehensive Software Project: Coding, Testing, and Implementation</p>
           </div>
         </div>
       </Router>

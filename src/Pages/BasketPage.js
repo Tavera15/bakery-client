@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./BasketPage.css";
 import BasketCard from "../Components/BasketCard/BasketCard.js";
 import { useHistory } from "react-router";
+import logo from "../Content/Images/logo.png"
 
 function BasketPage()
 {
@@ -86,8 +87,10 @@ function BasketPage()
         <div className="base-page" id="basket-page">
             <div className="order-details">
                 <div className="checkout-box-wrapper p-4">
-
                     <div className="p-4 checkout-box mb-4">
+                        <div>
+                            <img className="basket-logo" alt="basket-logo" src={logo} />
+                        </div>
                         <h3>Order Summary</h3>
                         <div className="checkout-details-box pt-4">
                             <div className="single-detail-box mb-4">
