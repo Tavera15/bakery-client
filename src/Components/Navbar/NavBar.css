@@ -16,6 +16,7 @@
     background-color: rgba(255, 182, 193, .2);
 }
 
+
 .navbar-user{
     display: flex;
     flex-direction: row;
@@ -32,9 +33,13 @@
 
 .navbar-links-group .nav-item{
     user-select: none;
-    display: inline-block;
+    display: inline;
     white-space: normal;
     margin: 0 10px;
+}
+
+.nav-item a{
+    white-space: nowrap;
 }
 
 .site-logo{
