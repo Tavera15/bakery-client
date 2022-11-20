@@ -15,6 +15,9 @@
 }
 
 @media (max-width: 600px) {
+    .product-card-container{
+        width: 50%;
+    }
     .img-container{
         height: auto !important;
         width: 10rem !important;
@@ -34,6 +37,7 @@
     background-color: whitesmoke;
     border: solid black 1px;
     border-radius: 20px;
+    width: 100%;
 }
 
 .img-container{
@@ -50,9 +54,15 @@
 
 .product-card-link{
     color: black;
+    display: block;
 }
 
 .product-card-link:hover{
     text-decoration: none;
     color: black;
+}
+
+.card-info p{
+    width: 100%;
+    padding: 0 0.5rem;
 }
