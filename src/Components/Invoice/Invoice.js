@@ -1,5 +1,6 @@
 import React from 'react';
 import './InvoiceDoc.css';
+import CompanyLogo from "../../Content/Images/logo.png"
 
 const Invoice = React.forwardRef((props, ref) =>
 {
@@ -13,13 +14,9 @@ const Invoice = React.forwardRef((props, ref) =>
                         </div>
                         <div className="card-body">
 
-                            { props.data.companyLogo !== "" && props.data.companyLogo !== null
-                                ? <div className="col-lg-12" id="logo-cont">
-                                     <img id="logo-img" src={props.data.companyLogo} alt="logo"/>
-                                 </div>
-
-                                :<div></div>
-                            }
+                            <div className="col-lg-12" id="logo-cont">
+                                <img id="logo-img" src={CompanyLogo} alt="logo"/>
+                            </div>
 
                             <div className="col-lg-12 mb-4">
                                 <div className="row">
@@ -34,7 +31,7 @@ const Invoice = React.forwardRef((props, ref) =>
                                                 <tr className="text-left">
                                                     <td>
                                                         <div>
-                                                            <strong>Something Barkery</strong>
+                                                            <strong>Skye's Barkery</strong>
                                                         </div>
                                                         <div>{props.data.addressLine1}</div>
                                                         <div>{props.data.addressLine2}</div>
